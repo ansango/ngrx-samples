@@ -3,7 +3,7 @@ export interface CounterState {
   channelName: string;
 }
 
-export const initialState = {
-  counter: 0,
+export const initialState: CounterState = {
+  counter: 4,
   channelName: 'Anibal Santos',
 };
