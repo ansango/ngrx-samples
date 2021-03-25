@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { AppState } from 'src/app/store/app.state';
 import { changeChannelName, customIncrement } from '../state/counter.actions';
 import { getChannelName } from '../state/counter.selectors';
-import { CounterState } from '../state/counter.state';
 
 @Component({
   selector: 'app-custom-counter-input',
