@@ -1,21 +1,22 @@
 <div class="container">
   <div class="row my-5">
     <div class="col-md-6 offset-md-3">
-      <h3>Login</h3>
+      <h3>Signup</h3>
       <hr />
-      <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSignUpSubmit()">
         <div class="mb-3">
           <label>Email</label>
           <input type="text" class="form-control" formControlName="email" />
           <div
             *ngIf="
-              loginForm.get('email')!.touched && !loginForm.get('email')!.valid
+              signUpForm.get('email')!.touched &&
+              !signUpForm.get('email')!.valid
             "
           >
-            <div *ngIf="loginForm.get('email')!.errors!.required">
+            <div *ngIf="signUpForm.get('email')!.errors!.required">
               Email is required
             </div>
-            <div *ngIf="loginForm.get('email')!.errors!.email">
+            <div *ngIf="signUpForm.get('email')!.errors!.email">
               Email is not ok
             </div>
           </div>
@@ -29,11 +30,11 @@
           />
           <div
             *ngIf="
-              loginForm.get('password')!.touched &&
-              !loginForm.get('password')!.valid
+              signUpForm.get('password')!.touched &&
+              !signUpForm.get('password')!.valid
             "
           >
-            <div *ngIf="loginForm.get('password')!.errors!.required">
+            <div *ngIf="signUpForm.get('password')!.errors!.required">
               Password is required
             </div>
           </div>
@@ -42,9 +43,9 @@
           <button
             class="btn btn-primary"
             type="submit"
-            [disabled]="!loginForm.valid"
+            [disabled]="!signUpForm.valid"
           >
-            Login
+            SignUp
           </button>
         </div>
       </form>
