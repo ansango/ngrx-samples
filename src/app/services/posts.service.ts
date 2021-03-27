@@ -30,4 +30,24 @@ export class PostsService {
       post
     );
   }
+
+  updatePost(post: Post): Observable<Post> {
+    const postId = post.id !== undefined ? post.id : '';
+    const postData = {
+      [postId]: {
+        title: post.title,
+        description: post.description,
+      },
+    };
+    return this.http.patch<Post>(
+      `https://vue-completecourse.firebaseio.com/posts.json`,
+      postData
+    );
+  }
+
+  deletePost(id: string): Observable<{}> {
+    return this.http.delete<{}>(
+      `https://vue-completecourse.firebaseio.com/posts/${id}.json`
+    );
+  }
 }
