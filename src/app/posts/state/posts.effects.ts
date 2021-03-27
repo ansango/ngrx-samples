@@ -26,20 +26,17 @@ export class PostsEffects {
     );
   });
 
-  addPost$ = createEffect(
-    () => {
-      return this.actions$.pipe(
-        ofType(addPost),
-        mergeMap((action) => {
-          return this.postsService.addPost(action.post).pipe(
-            map((data) => {
-              const post = { ...action.post, id: data.name };
-              return addPostSuccess({ post });
-            })
-          );
-        })
-      );
-    },
-    { dispatch: false }
-  );
+  addPost$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(addPost),
+      mergeMap((action) => {
+        return this.postsService.addPost(action.post).pipe(
+          map((data) => {
+            const post = { ...action.post, id: data.name };
+            return addPostSuccess({ post });
+          })
+        );
+      })
+    );
+  });
 }
